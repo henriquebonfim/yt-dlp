@@ -134,9 +134,7 @@ def download_single(url: str, cfg: Config) -> Tuple[StatusCode, int]:
                 info = ydl.extract_info(url, download=False)
                 title = info.get("title", "video")
                 # Sanitize title for folder name
-                folder_name = "".join(
-                    c if c.isalnum() or c in (" ", "-", "_") else "_" for c in title
-                )
+                folder_name = "".join(c if c.isalnum() or c in (' ', '-', '_') else '_' for c in title)
                 video_dir = cfg.downloads_dir / folder_name
                 video_dir.mkdir(parents=True, exist_ok=True)
 
